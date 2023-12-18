@@ -1,0 +1,13 @@
+---
+- name: Exécuter un script sur un serveur distant
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Exécuter le script Python avec les variables
+      command: python3 /scripts/insert_population.py --host '{{ mysql_host }}' --user '{{ mysql_user }}' --port '{{ mysql_port|int }}' --password '{{ mysql_password }}' --database '{{ mysql_database }}'
+
+
+
+
+
