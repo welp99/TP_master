@@ -18,7 +18,7 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-# URL de l'API (exemple avec une API hypothétique)
+# URL de l'API 
 api_url = "https://geo.api.gouv.fr/communes/{}"
 
 # Récupération des données de la base de données
