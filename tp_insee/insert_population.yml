@@ -4,10 +4,20 @@
   become: yes
 
   tasks:
+    - name: Copier le script
+      copy:
+        src: ./insert_population.py  
+        dest: /scripts/insert_population.py  
+      become: yes
+
     - name: Exécuter le script Python avec les variables
       command: python3 /scripts/insert_population.py --host '{{ mysql_host }}' --user '{{ mysql_user }}' --port '{{ mysql_port|int }}' --password '{{ mysql_password }}' --database '{{ mysql_database }}'
 
-
+    - name: Supprimer le script
+      file: 
+        path: /scripts/insert_population.py
+        state: absent
+      become: yes
 
 
 
